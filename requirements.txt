@@ -1,0 +1,9 @@
+# Common dependencies for backend services
+fastapi
+uvicorn
+requests
+openai
+python-dotenv
+pyaudio
+sounddevice
+webrtcvad
