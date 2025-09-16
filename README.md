@@ -1,5 +1,5 @@
 # Timeless Architecture
-## Rasku's Timeless Vision
+## GPT-Lab's Timeless Vision
 
 <div align="center">
   <img src="timeless_ui/public/logo/timeless_logo-removebg.png" alt="Timeless Logo" height="150" />
