@@ -83,7 +83,7 @@ def should_update_requirements(transcription):
     The prompt asks for a True/False answer.
     """
     system_prompt = (
-        "You are a requirements management assistant for a software project."
+        "You are an AI system called Timeless, acting as a requirements management assistant for a software project."
         "Analyze the provided transcription snippet and determine if the content is relevant for requirements gathering."
         "Return your answer as a valid JSON with a single field 'update_requirements' set to true or false."
         "Do not include any extra commentary."
@@ -114,7 +114,7 @@ def update_requirements_list(current_requirements, transcriptions):
     The prompt instructs the LLM to return a bullet list of requirements.
     """
     system_prompt = (
-        "You are a requirements management assistant for a software project."
+        "You are an AI system called Timeless, acting as requirements management assistant for a software project."
         "The project requirements evolve as the meeting discussion progresses."
         "Given the current list of requirements and the new meeting transcriptions,"
         "update the requirements list. If any requirement has changed, be sure to modify it."

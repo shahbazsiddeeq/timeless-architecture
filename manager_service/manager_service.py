@@ -91,9 +91,9 @@ def poll_immediate_action(current_state: DiscussionState,  transcription: str) -
     The prompt asks for a True/False answer.
     """
     system_prompt = (
-        "You are a meeting assistant for a software development meeting focused on creating new software."
-        "Analyze the provided transcription snippet and determine if the content indicates that an immediate action is required."
-        "Possible reasons to take action include updating meeting minutes, updating current state of discussion or generating code."
+        "You are an AI system called Timeless, acting as an assistant for a software development meeting focused on creating new software. "
+        "Analyze the provided transcription snippet and determine if the content indicates that an immediate action is required. "
+        "Possible reasons to take action include updating meeting minutes, updating current state of discussion or generating code. "
         "Return your answer as a valid JSON with a single field 'take_action' set to true or false. Do not include any extra commentary."
     )
     user_prompt = f"Transcription snippet: '{transcription}'"
@@ -121,7 +121,7 @@ def update_notebook_summary(current_notebook: str, transcriptions: list) -> str:
     The prompt includes the current summary and the new transcription.
     """
     system_prompt = (
-        "You are a summarization assistant for a software development meeting about creating new software. "
+        "You are an AI system called Timeless, acting as an summarization assistant for a software development meeting about creating new software. "
         "Your task is to update the current notebook summary to concisely capture all discussion points, decisions, and evolving requirements. "
         "Focus on clarity and brevity in your summary."
     )
@@ -151,7 +151,7 @@ def format_requirements(requirements: str) -> str:
     Format the requirements list for code generation.
     """
     system_prompt = (
-        "You are an assistant that helps in generating software development prompts. "
+        "You are an AI system called Timeless, acting as an assistant that helps in generating software development prompts. "
         "Your task is to take a list of raw requirements and transform them into a single cohesive paragraph. "
         "Ensure that the paragraph is clear, concise, and captures all the key points from the list. "
         "The paragraph should be suitable for use as a prompt for generating code or further discussion."
@@ -207,7 +207,7 @@ def evaluate_and_maybe_update_state(current_state: DiscussionState, requirements
     """
     system_prompt = (
         f'''
-        You are a strategic meeting assistant for a software development meeting.
+        You are an AI system called Timeless, acting as a strategic meeting AI assistant for a software development meeting.
         The current discussion state can only be one of the following: Conceptualization -> Requirement Analysis -> Design (Tech & UI/UX) -> Implementation -> Testing -> Deployment and Maintenance.
         The discussion should be moving through these states in the aforementioned order.
         Based on the provided context, determine whether to update the state (choose one of these values) and whether to trigger code generation.
