@@ -1,4 +1,5 @@
 # Timeless Architecture
+
 ## GPT-Lab's Timeless Vision
 
 <div align="center">
@@ -36,36 +37,54 @@ Timeless Architecture consists of several key components:
 
 ## Installation
 
-### Prerequisites
+### Prerequisites (Tampere University machines)
 
-- **Python 3.8+**
-- **Node.js** (required for Timeless UI)
-- **Virtual environment tool** (recommended)
+1. **Install MyApps, Python, and Node.js**
+   - Open Software Center and install:
+     - MyApps
+     - Python (3.8+)
+     - Node.js (latest LTS)
 
 ### Setup
 
 1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/koodattu-varjotimeless-sjk.git
-   cd koodattu-varjotimeless-sjk
-   ```
 
-2. **Create and Activate a Virtual Environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+   - Open a terminal (PowerShell recommended)
+   - Navigate to your MyApps folder:
+     ```powershell
+     cd C:/<username>/MyApps
+     ```
+   - Clone the repository:
+     ```powershell
+     git clone https://github.com/GPT-Laboratory/timeless-architecture-base.git
+     cd timeless-architecture-base
+     ```
 
-3. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. **Configure Environment**
 
-4. **Run the Bootstrap Script**
-   ```bash
-   python bootstrap.py
-   ```
-   Use `--cpu` or `--gpu` to specify Whisper transcription mode.
+   - Rename `example.env` to `.env`:
+     ```powershell
+     Rename-Item example.env .env
+     ```
+   - Open `.env` in a text editor and insert your OpenAI API key and other required settings.
+
+3. **Run the Bootstrap Script**
+   - The bootstrap script will create a virtual environment, install all dependencies, and start all services.
+   - To start the backend and frontend (UI), run:
+     ```powershell
+     python bootstrap.py --web
+     ```
+   - To run only backend services (no UI), omit the `--web` flag:
+     ```powershell
+     python bootstrap.py
+     ```
+   - Use `--cpu` or `--gpu` to specify Whisper transcription mode if needed:
+     ```powershell
+     python bootstrap.py --web --cpu
+     python bootstrap.py --web --gpu
+     ```
+
+---
 
 ---
 
@@ -112,14 +131,17 @@ If using WhatsApp integration, link your account using the QR code provided by N
 ## API Services
 
 ### **Manager Service API**
+
 - Handles meeting transcription processing, state transitions, and triggers code generation.
 - Provides a **Server-Sent Events (SSE)** stream for real-time meeting updates.
 
 ### **Requirements Service API**
+
 - Stores meeting discussions and updates software requirements dynamically.
 - Provides an API to retrieve the latest requirements list for a given meeting.
 
 ### **Transcription Service API**
+
 - Captures live audio, transcribes it using Whisper, and sends results to the manager service.
 - Supports both local (faster-whisper) and cloud-based transcription (OpenAI Whisper API).
 
