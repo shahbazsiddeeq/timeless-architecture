@@ -46,12 +46,16 @@ def install_requirements(python_path, args):
             "https://download.pytorch.org/whl/cu118"
         ])
 
-def start_services(python_path):
+def start_services(python_path, also_naivecoder=False):
     services = [
         {"name": "Manager Service", "script": os.path.join("manager_service", "manager_service.py")},
         {"name": "Requirements Service", "script": os.path.join("requirements_service", "requirements_manager.py")},
-        {"name": "Transcription Service", "script": os.path.join("transcription_service", "transcribe_service.py")}
+        {"name": "Transcription Service", "script": os.path.join("transcription_service", "transcribe_service.py")},
     ]
+    if also_naivecoder:
+        services.append(
+                {"name": "Code Generator Service", "script": os.path.join("tkinter_coder_service", "coder_service.py")}
+        )
     processes = []
     for service in services:
         print(f"Starting {service['name']}...")
@@ -99,6 +103,7 @@ def main():
     group.add_argument("--cpu", action="store_true", help="Install faster-whisper for CPU-only support.")
     group.add_argument("--gpu", action="store_true", help="Install faster-whisper and CUDA-enabled PyTorch for GPU support.")
     parser.add_argument("--web", action="store_true", help="Install and start the frontend (timeless_ui)")
+    parser.add_argument("--naivecoder", action="store_true", help="Start the naive coder backend (tkinter_coder_service)")
     args = parser.parse_args()
 
     venv_dir = "venv"
@@ -121,7 +126,7 @@ def main():
             print("Warning: Next.js dev server did not start in time.")
 
     # Start backend services
-    processes = start_services(python_path)
+    processes = start_services(python_path, also_naivecoder=args.naivecoder)
 
     print("All services are running. Press Ctrl+C to stop.")
     try:
