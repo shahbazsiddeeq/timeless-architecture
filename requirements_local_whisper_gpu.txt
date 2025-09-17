@@ -6,7 +6,7 @@ python-dotenv
 flask-cors
 pyaudio
 sounddevice
-webrtcvad
+webrtcvad-wheels
 
 # Local transcription support using faster-whisper
 faster-whisper
