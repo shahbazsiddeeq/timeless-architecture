@@ -86,6 +86,8 @@ Timeless Architecture consists of several key components:
 
 ---
 
+Use `--web` to also start up the Timeless UI.
+
 ---
 
 ## Configuration
