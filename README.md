@@ -46,8 +46,8 @@ Timeless Architecture consists of several key components:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/koodattu-varjotimeless-sjk.git
-   cd koodattu-varjotimeless-sjk
+   git clone git@github.com:GPT-Laboratory/timeless-architecture-base.git
+   cd timeless-architecture-base
    ```
 
 2. **Create and Activate a Virtual Environment**
@@ -67,7 +67,9 @@ Timeless Architecture consists of several key components:
    ```
    Use `--cpu` or `--gpu` to specify Whisper transcription mode.
 
----
+   Use `--web` to also start up the Timeless UI.
+
+ ---
 
 ## Configuration
 
