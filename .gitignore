@@ -215,3 +215,8 @@ timeless_ui/src/app/components/projectDataProvider_*.tsx
 timeless_ui/src/app/components/StopDiscussionButton.tsx_v1
 timeless_ui/src/app/styles/dataProvider.module.css-ready.24nov
 timeless_ui/src/app/styles/dataProvider.module.css.additions.css
+
+# Presentations and PROFES paper (not for repo)
+*.pptx
+PROFES*/
+make_profes_pptx.py
