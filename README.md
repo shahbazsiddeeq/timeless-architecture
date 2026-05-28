@@ -1,4 +1,4 @@
-# Timeless — Holographic Meeting Intelligence
+# Timeless
 
 > **v0.2** · AI-powered meeting system that turns spoken requirements into a running web application in real time.
 
